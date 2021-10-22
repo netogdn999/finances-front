@@ -3,12 +3,14 @@ import 'package:vector_math/vector_math.dart' as vmath;
 
 class Graph extends StatelessWidget {
   final double width;
-  const Graph({Key? key, this.width = 26}) : super(key: key);
+  final Color? color;
+
+  const Graph({Key? key, this.width = 26, this.color}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
-      painter: GraphPaint(width: width),
+      painter: GraphPaint(width: width, color: color),
       child: Container(),
     );
   }
@@ -16,8 +18,9 @@ class Graph extends StatelessWidget {
 
 class GraphPaint extends CustomPainter {
   final double width;
+  final Color? color;
 
-  GraphPaint({required this.width});
+  GraphPaint({required this.width, this.color});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -47,7 +50,7 @@ class GraphPaint extends CustomPainter {
       Paint()
         ..style = PaintingStyle.stroke
         ..strokeCap = StrokeCap.round
-        ..color = Colors.white
+        ..color = this.color ?? Colors.white
         ..strokeWidth = width
     );
     canvas.restore();
