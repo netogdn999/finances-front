@@ -1,0 +1,1 @@
+export 'contract_name.dart';
