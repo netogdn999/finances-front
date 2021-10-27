@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "finances-front",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "finances-storybook",
+            "request": "launch",
+            "type": "dart",
+        },
+    ]
+}
