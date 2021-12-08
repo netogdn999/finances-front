@@ -11,8 +11,7 @@ class Graphics extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: height,
+    return Expanded(
       child: CustomPaint(
         painter: GraphPaint(width: width, color: color),
         child: Container(),
@@ -28,7 +27,7 @@ class Graphics extends StatelessWidget {
     } else {
       color = Colors.white;
     }
-    return Graphics(width: contract.width ?? 26, color: color, height: contract.height,);
+    return Graphics(width: contract.width ?? 26, color: color, height: contract.height);
   }
 }
 
