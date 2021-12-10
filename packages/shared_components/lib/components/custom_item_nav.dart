@@ -1,17 +1,13 @@
 part of 'custom_bottom_navigation_bar.dart';
 
-class _ItemNavWidget extends StatelessWidget {
-  final double iconSize;
-  final bool isSelected;
-  final BottomNavBarItem item;
-  final Color backgroundColor;
+class CustomItemNavWidget extends StatelessWidget {
+  final Widget icon;
+  final Color color;
 
-  const _ItemNavWidget({
+  const CustomItemNavWidget({
     Key? key,
-    required this.item,
-    required this.isSelected,
-    required this.backgroundColor,
-    required this.iconSize,
+    required this.icon,
+    required this.color,
   }) : super(key: key);
 
   @override
@@ -25,29 +21,13 @@ class _ItemNavWidget extends StatelessWidget {
         children: <Widget>[
           IconTheme(
             data: IconThemeData(
-              size: iconSize,
-              color: isSelected ? item.activeColor : item.inactiveColor,
+              size: 24,
+              color: color,
             ),
-            child: item.icon,
+            child: icon,
           ),
         ],
       ),
     );
   }
-}
-
-class BottomNavBarItem {
-  BottomNavBarItem({
-    required this.icon,
-    required this.title,
-    this.activeColor,
-    this.textAlign,
-    this.inactiveColor,
-  });
-
-  final Widget icon;
-  final Widget title;
-  late Color? activeColor;
-  late Color? inactiveColor;
-  TextAlign? textAlign;
 }
