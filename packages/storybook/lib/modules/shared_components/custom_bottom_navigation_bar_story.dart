@@ -39,34 +39,27 @@ class CustomBottomNavigationBarStory {
                   Option('Green', Colors.green),
                 ]);
 
-            int _currentIndex = 0;
-
             return CustomBottomNavigationBar(
               containerHeight: 70,
               backgroundColor: color,
               activeColor: activeColor,
               inactiveColor: inactiveColor,
-              selectedIndex: _currentIndex,
-              items: <BottomNavBarItem>[
-                BottomNavBarItem(
+              items: <CustomItemNavWidget>[
+                CustomItemNavWidget(
                   icon: const Icon(Icons.home),
-                  title: const Text('Home'),
-                  textAlign: TextAlign.center,
+                  color: inactiveColor,
                 ),
-                BottomNavBarItem(
+                CustomItemNavWidget(
                   icon: const Icon(Icons.graphic_eq),
-                  title: const Text('Graphics'),
-                  textAlign: TextAlign.center,
+                  color: inactiveColor,
                 ),
-                BottomNavBarItem(
+                CustomItemNavWidget(
                   icon: const Icon(Icons.account_balance_wallet),
-                  title: const Text('Wallet'),
-                  textAlign: TextAlign.center,
+                  color: inactiveColor,
                 ),
-                BottomNavBarItem(
+                CustomItemNavWidget(
                   icon: const Icon(Icons.perm_identity),
-                  title: const Text('People'),
-                  textAlign: TextAlign.center,
+                  color: inactiveColor,
                 ),
               ],
             );
