@@ -41,7 +41,7 @@ class LaunchCard extends StatelessWidget {
               offset: const Offset(2, 4),
               spreadRadius: 0,
             ),
-          ] // Make rounded corner of border
+          ]
           ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

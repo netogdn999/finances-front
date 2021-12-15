@@ -1,3 +1,4 @@
+import 'package:domain/entities/custom_app_bar_contract.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -9,6 +10,10 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+
+  static CustomAppBar fromDto(CustomAppBarContract contract) {
+    return const CustomAppBar();
+  }
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {
@@ -118,7 +123,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       width: MediaQuery.of(context).size.width,
       height: widget.preferredSize.height,
-      color: Colors.transparent,
+      // color: Colors.transparent,
+      color: Colors.blue.shade300,
       child: Row(
         children: [
           Expanded(
