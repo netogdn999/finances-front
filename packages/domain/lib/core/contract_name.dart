@@ -4,4 +4,5 @@ class ContractName {
   static String customBottomApp = "CustomBottomApp";
   static String customNavBarItem = "CustomNavBarItem";
   static String launchCard = "LaunchCard";
+  static String entryCard = "EntryCard";
 }
