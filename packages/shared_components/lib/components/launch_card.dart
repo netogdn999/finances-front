@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:domain/entities/entities.dart';
 
 class LaunchCard extends StatelessWidget {
   final String title;
@@ -16,6 +17,16 @@ class LaunchCard extends StatelessWidget {
       required this.value,
       required this.date})
       : super(key: key);
+
+  static LaunchCard fromDto(LaunchCardContract contract) {
+    return LaunchCard(
+      date: contract.date,
+      height: contract.height,
+      width: contract.width,
+      title: contract.title,
+      value: contract.value,
+    );
+  }
 
   Color _color(double value) {
     return value > 0 ? const Color(0xff39AE2E) : const Color(0xffCD4F4F);

@@ -1,19 +1,29 @@
 import 'package:domain/entities/custom_app_bar_contract.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:domain/entities/entities.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
-  const CustomAppBar({Key? key}) : super(key: key);
+  final Image image;
+
+  const CustomAppBar({Key? key, required this.image}) : super(key: key);
+
+  static CustomAppBar fromDto(CustomAppBarContract contract) {
+    return CustomAppBar(
+      image: Image.network(
+        contract.image,
+        height: 40,
+        width: 40,
+        fit: BoxFit.cover,
+      ),
+    );
+  }
 
   @override
   State<CustomAppBar> createState() => _CustomAppBarState();
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
-
-  static CustomAppBar fromDto(CustomAppBarContract contract) {
-    return const CustomAppBar();
-  }
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {
@@ -85,12 +95,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
       return Row(
         children: [
           ClipOval(
-            child: Image.asset(
-              'assets/images/perfil.jpeg',
-              height: 40,
-              width: 40,
-              fit: BoxFit.cover,
-            ),
+            child: widget.image,
           ),
           const SizedBox(width: 16),
           const Expanded(
