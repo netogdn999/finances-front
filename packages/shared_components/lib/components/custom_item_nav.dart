@@ -1,4 +1,4 @@
-part of 'custom_bottom_navigation_bar.dart';
+part of 'custom_nav_bar.dart';
 
 class CustomItemNavWidget extends StatelessWidget {
   final Widget icon;

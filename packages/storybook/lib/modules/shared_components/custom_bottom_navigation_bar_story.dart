@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:shared_components/components/custom_bottom_navigation_bar.dart';
+import 'package:shared_components/components/components.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class CustomBottomNavigationBarStory {
@@ -39,7 +38,7 @@ class CustomBottomNavigationBarStory {
                   Option('Green', Colors.green),
                 ]);
 
-            return CustomBottomNavigationBar(
+            return CustomNavBar(
               containerHeight: 70,
               backgroundColor: color,
               activeColor: activeColor,
