@@ -33,15 +33,12 @@ final homePage = PageContract(
       ],
     ),
     bottomNavBar: CustomNavBarContract(
-        containerHeight: 70,
         backgroundColor: 0xffFEFEFE,
-        activeColor: 0xff2270D2,
-        inactiveColor: 0xffD6E0ED,
         items: [
-          CustomNavBarItemContract(icon: 0xe2e3, color: 0xffD6E0ED),
-          CustomNavBarItemContract(icon: 0xe2e3, color: 0xffD6E0ED),
-          CustomNavBarItemContract(icon: 0xe2e3, color: 0xffD6E0ED),
-          CustomNavBarItemContract(icon: 0xe2e3, color: 0xffD6E0ED)
+          CustomNavBarItemContract(icon: 0xe2e3, color: 0xffD6E0ED, label: 'home'),
+          CustomNavBarItemContract(icon: 0xe2e3, color: 0xffD6E0ED, label: 'wallet'),
+          CustomNavBarItemContract(icon: 0xe2e3, color: 0xffD6E0ED, label: 'entries'),
+          CustomNavBarItemContract(icon: 0xe2e3, color: 0xffD6E0ED, label: 'settings')
         ]),
     components: [
       GraphicsContract(
