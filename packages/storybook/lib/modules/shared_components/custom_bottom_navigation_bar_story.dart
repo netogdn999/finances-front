@@ -39,26 +39,23 @@ class CustomBottomNavigationBarStory {
                 ]);
 
             return CustomNavBar(
-              containerHeight: 70,
               backgroundColor: color,
-              activeColor: activeColor,
-              inactiveColor: inactiveColor,
-              items: <CustomItemNavWidget>[
-                CustomItemNavWidget(
-                  icon: const Icon(Icons.home),
-                  color: inactiveColor,
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
+                  label: 'home'
                 ),
-                CustomItemNavWidget(
-                  icon: const Icon(Icons.graphic_eq),
-                  color: inactiveColor,
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.graphic_eq),
+                  label: 'graphic'
                 ),
-                CustomItemNavWidget(
-                  icon: const Icon(Icons.account_balance_wallet),
-                  color: inactiveColor,
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.account_balance_wallet),
+                  label: 'wallet'
                 ),
-                CustomItemNavWidget(
-                  icon: const Icon(Icons.perm_identity),
-                  color: inactiveColor,
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.perm_identity),
+                  label: 'user'
                 ),
               ],
             );

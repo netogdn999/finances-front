@@ -4,6 +4,5 @@ class ContractName {
   static String customNavBar = "CustomNavBar";
   static String customBottomSheet = "CustomBottomSheet";
   static String launchCard = "LaunchCard";
-  static String entryCard = "EntryCard";
   static String listEntryCard = "ListEntryCard";
 }
