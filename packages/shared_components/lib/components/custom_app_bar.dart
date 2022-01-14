@@ -1,6 +1,5 @@
 import 'package:domain/entities/custom_app_bar_contract.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:domain/entities/entities.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
@@ -23,7 +22,7 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   State<CustomAppBar> createState() => _CustomAppBarState();
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(108);
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {
@@ -78,9 +77,10 @@ class _CustomAppBarState extends State<CustomAppBar> {
         builder: (_, double width, child) {
           return Align(
             child: Container(
+              height: 37,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(100),
-                color: const Color(0x98B3B3B3),
+                color: const Color(0xFFFFFFFF).withOpacity(0.2),
               ),
               child: child,
               width: width,
@@ -125,11 +125,10 @@ class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      padding: const EdgeInsets.only(top: 54, bottom: 8, left: 16, right: 16),
       width: MediaQuery.of(context).size.width,
-      height: widget.preferredSize.height,
-      // color: Colors.transparent,
-      color: Colors.blue.shade300,
+      height: 180,
+      color: const Color(0xFF3CBAF0),
       child: Row(
         children: [
           Expanded(

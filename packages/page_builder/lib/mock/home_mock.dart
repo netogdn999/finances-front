@@ -3,15 +3,45 @@ import 'package:page_builder/presentation/page/page_contract.dart';
 
 final homePage = PageContract(
     appBar: CustomAppBarContract(image: 'https://i.ibb.co/tYmgqRq/perfil.jpg'),
+    bottomSheet: CustomBottomSheetContract(
+      title: 'Categorias',
+      children: [
+        ListEntryCardContract(
+          children: [
+            EntryCardContract(
+              label: "Aluguel",
+              total: 80,
+              expense: 604,
+            ),
+            EntryCardContract(
+              label: "B3",
+              total: 800,
+              expense: 903,
+            ),
+            EntryCardContract(
+              label: "Alimentação",
+              total: 400,
+              expense: 603,
+            ),
+            EntryCardContract(
+              label: "Transporte",
+              total: 80,
+              expense: 95,
+            ),
+          ],
+        ),
+      ],
+    ),
+    bottomNavBar: CustomNavBarContract(
+        backgroundColor: 0xffFEFEFE,
+        items: [
+          CustomNavBarItemContract(icon: 0xe2e3, color: 0xffD6E0ED, label: 'home'),
+          CustomNavBarItemContract(icon: 0xe2e3, color: 0xffD6E0ED, label: 'wallet'),
+          CustomNavBarItemContract(icon: 0xe2e3, color: 0xffD6E0ED, label: 'entries'),
+          CustomNavBarItemContract(icon: 0xe2e3, color: 0xffD6E0ED, label: 'settings')
+        ]),
     components: [
       GraphicsContract(
-        color: 0xFF000000,
+        color: 0xFFFFFFFF,
       ),
-      LaunchCardContract(
-        title: "Casa do Henrique",
-        height: 80,
-        width: 343,
-        value: 100.70,
-        date: "20 Março, 09:00 AM",
-      )
     ]);

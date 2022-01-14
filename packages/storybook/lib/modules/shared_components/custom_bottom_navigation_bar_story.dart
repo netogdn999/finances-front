@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:shared_components/components/custom_bottom_navigation_bar.dart';
+import 'package:shared_components/components/components.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 class CustomBottomNavigationBarStory {
@@ -39,27 +38,24 @@ class CustomBottomNavigationBarStory {
                   Option('Green', Colors.green),
                 ]);
 
-            return CustomBottomNavigationBar(
-              containerHeight: 70,
+            return CustomNavBar(
               backgroundColor: color,
-              activeColor: activeColor,
-              inactiveColor: inactiveColor,
-              items: <CustomItemNavWidget>[
-                CustomItemNavWidget(
-                  icon: const Icon(Icons.home),
-                  color: inactiveColor,
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
+                  label: 'home'
                 ),
-                CustomItemNavWidget(
-                  icon: const Icon(Icons.graphic_eq),
-                  color: inactiveColor,
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.graphic_eq),
+                  label: 'graphic'
                 ),
-                CustomItemNavWidget(
-                  icon: const Icon(Icons.account_balance_wallet),
-                  color: inactiveColor,
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.account_balance_wallet),
+                  label: 'wallet'
                 ),
-                CustomItemNavWidget(
-                  icon: const Icon(Icons.perm_identity),
-                  color: inactiveColor,
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.perm_identity),
+                  label: 'user'
                 ),
               ],
             );

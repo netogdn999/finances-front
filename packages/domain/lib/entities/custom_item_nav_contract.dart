@@ -1,9 +1,7 @@
-import 'package:domain/core/contract_name.dart';
-import 'package:domain/entities/contract.dart';
-
-class CustomNavBarItemContract extends Contract {
+class CustomNavBarItemContract {
   final int icon;
   final int color;
+  final String label;
 
-  CustomNavBarItemContract({required this.icon, required this.color}) : super(ContractName.customNavBarItem);
+  CustomNavBarItemContract({required this.icon, required this.color, required this.label});
 }
