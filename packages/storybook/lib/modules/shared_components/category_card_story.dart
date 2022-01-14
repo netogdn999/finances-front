@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
-import 'package:shared_components/components/entry_card.dart';
+import 'package:shared_components/components/category_card.dart';
 
-class EntryCardStory {
+class CategoryCardStory {
   static Iterable<Story> get stories => [
         Story(
           section: 'Shared Components',
-          name: 'EntryCard',
+          name: 'CategoryCard',
           builder: (_, knobs) {
             return SizedBox(
               height: 300,
@@ -14,7 +14,7 @@ class EntryCardStory {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: const [
-                  EntryCard(
+                  CategoryCard(
                     label: "Tarifas",
                     total: 400000,
                     expense: 8500,

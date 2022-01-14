@@ -3,6 +3,6 @@ class ContractName {
   static String customAppBar = "CustomAppBar";
   static String customNavBar = "CustomNavBar";
   static String customBottomSheet = "CustomBottomSheet";
-  static String launchCard = "LaunchCard";
-  static String listEntryCard = "ListEntryCard";
+  static String listCategoryCard = "ListCategoryCard";
+  static String listLaunchCard = "ListLaunchCard";
 }

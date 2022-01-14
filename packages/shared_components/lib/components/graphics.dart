@@ -11,10 +11,15 @@ class Graphics extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: CustomPaint(
-        painter: GraphPaint(width: width, color: color),
-        child: Container(),
+    return Center(
+      child: Container(
+        height: MediaQuery.of(context).size.height * 0.5 - 130,
+        width: 280,
+        margin: const EdgeInsets.only(bottom: 70),
+        child: CustomPaint(
+          painter: GraphPaint(width: width, color: color),
+          child: Container(),
+        ),
       ),
     );
   }
