@@ -31,6 +31,8 @@ dependencies:
   flutter_bloc: ^8.0.0
   page_builder: 
     path: packages/page_builder
+  custom_navigator: 
+    path: packages/custom_navigator
 
 dev_dependencies:
   flutter_test:
