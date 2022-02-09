@@ -6,25 +6,25 @@ final homePage = PageContract(
     bottomSheet: CustomBottomSheetContract(
       title: 'Categorias',
       children: [
-        ListEntryCardContract(
+        ListCategoryCardContract(
           children: [
-            EntryCardContract(
+            CategoryCardContract(
               label: "Aluguel",
               total: 80,
               expense: 604,
             ),
-            EntryCardContract(
-              label: "B3",
+            CategoryCardContract(
+              label: "Aluguel",
               total: 800,
               expense: 903,
             ),
-            EntryCardContract(
-              label: "Alimentação",
+            CategoryCardContract(
+              label: "Aluguel",
               total: 400,
               expense: 603,
             ),
-            EntryCardContract(
-              label: "Transporte",
+            CategoryCardContract(
+              label: "Aluguel",
               total: 80,
               expense: 95,
             ),

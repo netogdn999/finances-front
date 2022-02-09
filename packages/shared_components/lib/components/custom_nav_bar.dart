@@ -20,6 +20,7 @@ class CustomNavBar extends StatefulWidget {
           (item) => BottomNavigationBarItem(
             icon: Icon(
               IconData(item.icon, fontFamily: 'MaterialIcons'),
+              size: 26,
             ),
             label: item.label,
           ),
@@ -40,6 +41,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 80,
       decoration: BoxDecoration(
         color: widget.backgroundColor,
         boxShadow: [

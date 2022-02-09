@@ -13,7 +13,7 @@ class CustomBottomSheetStory {
               bottomSheet: const CustomBottomSheet(
                 title: "Categorias",
                 children: [
-                  EntryCard(
+                  CategoryCard(
                     label: 'Tarifas',
                     total: 400000,
                     expense: 8500,

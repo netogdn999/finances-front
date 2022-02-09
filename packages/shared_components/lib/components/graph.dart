@@ -26,7 +26,7 @@ class GraphPaint extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final center = Offset(size.width / 2, size.height / 2);
     canvas.drawArc(
-      Rect.fromCenter(center: center, width: size.width - 30, height: size.height - 30), 
+      Rect.fromCenter(center: center, width: size.width - 10, height: size.height - 10), 
       vmath.radians(135),
       vmath.radians(274),
       false,
@@ -38,12 +38,12 @@ class GraphPaint extends CustomPainter {
     );
 
     canvas.saveLayer(
-      Rect.fromCenter(center: center, width: size.width - 30, height: size.height - 30),
+      Rect.fromCenter(center: center, width: size.width - 10, height: size.height - 10),
       Paint()
     );
 
     canvas.drawArc(
-      Rect.fromCenter(center: center, width: size.width - 30, height: size.height - 30),
+      Rect.fromCenter(center: center, width: size.width - 10, height: size.height - 10),
       vmath.radians(135),
       vmath.radians(127),
       false,

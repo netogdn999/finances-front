@@ -16,12 +16,12 @@ class CustomBottomSheet extends StatelessWidget {
     List<Widget> listWidgets = [];
 
     for (var contract in listContracts) {
-      if (contract is ListEntryCardContract) {
-        listWidgets.add(ListEntryCard.fromDto(contract));
+      if (contract is ListCategoryCardContract) {
+        listWidgets.add(ListCategoryCard.fromDto(contract));
       }
 
-      if (contract is LaunchCardContract) {
-        listWidgets.add(LaunchCard.fromDto(contract));
+      if (contract is ListLaunchCardContract) {
+        listWidgets.add(ListLaunchCard.fromDto(contract));
       }
     }
 
@@ -46,8 +46,9 @@ class CustomBottomSheet extends StatelessWidget {
       ),
       builder: (_) {
         return Container(
-          padding: const EdgeInsets.symmetric(vertical: 12),
+          padding: const EdgeInsets.only(top: 9),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Container(
                 alignment: Alignment.center,
@@ -59,7 +60,7 @@ class CustomBottomSheet extends StatelessWidget {
               ),
               Container(
                 alignment: Alignment.centerLeft,
-                margin: const EdgeInsets.symmetric(horizontal: 38, vertical: 16),
+                margin: const EdgeInsets.only(left: 38, right: 38, bottom: 16),
                 child: Text(
                   title,
                   style: GoogleFonts.poppins(
@@ -70,7 +71,6 @@ class CustomBottomSheet extends StatelessWidget {
                 ),
               ),
               ...children,
-              const SizedBox(height: 33)
             ],
           ),
         );
