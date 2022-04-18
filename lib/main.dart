@@ -1,5 +1,7 @@
+import 'package:domain/core/navigator_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:module_test/module_test.dart';
 import 'package:page_builder/page_builder.dart';
 import 'package:custom_navigator/custom_navigator.dart';
 
@@ -21,8 +23,12 @@ class MainApp extends StatelessWidget {
         child: BlocProvider<PageBuilderController>(
           create: (context) =>
               PageBuilderController(context.read<RepositoryInterface>()),
-          child: MainNavigator(
-            module: ModuleNavigator(),
+          child: MainNavigator<ModuleName>(
+            initialModule: ModuleName.pageBuilder,
+            modules: [
+              PageBuilderModule(),
+              ModuleTest(),
+            ],
           ),
         ),
       ),

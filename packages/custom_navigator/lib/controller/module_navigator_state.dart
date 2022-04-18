@@ -1,10 +1,28 @@
 part of 'module_navigator_bloc.dart';
 
-@immutable
-abstract class ModuleNavigatorState {}
+abstract class ModuleNavigatorState<RouteName> {
+  final RouteName? routeName;
+  final dynamic params;
 
-class ModuleNavigatorInitial extends ModuleNavigatorState {}
+  ModuleNavigatorState(this.routeName, this.params);
+}
 
-class ModulePreparingRoute extends ModuleNavigatorState {}
+class ModuleNavigatorInitial<RouteName> extends ModuleNavigatorState {
+  ModuleNavigatorInitial({required RouteName routeName, dynamic params}) : super(routeName, params);
+}
 
-class ModuleRenderRoute extends ModuleNavigatorState {}
+class ModulePreparingRoute<RouteName> extends ModuleNavigatorState {
+  ModulePreparingRoute(RouteName routeName, params) : super(routeName, params);
+}
+
+class ModuleRenderRoute<RouteName> extends ModuleNavigatorState {
+  ModuleRenderRoute(RouteName routeName, params) : super(routeName, params);
+}
+
+class NavigateToRouteState<RouteName> extends ModuleNavigatorState {
+  NavigateToRouteState({required RouteName routeName, dynamic params}) : super(routeName, params);
+}
+
+class RouterRenderEndState<RouteName> extends ModuleNavigatorState {
+  RouterRenderEndState({RouteName? routeName, dynamic params}) : super(routeName, params);
+}

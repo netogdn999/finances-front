@@ -4,12 +4,15 @@ import 'package:custom_navigator/module.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class MainNavigator extends StatefulWidget {
-  final Module module;
+class MainNavigator<ModuleName> extends StatefulWidget {
+  final List<Module> modules;
+  final ModuleName initialModule;
   late final ModuleNavigatorController delegate;
 
-  MainNavigator({Key? key, required this.module}) : super(key: key) {
-    delegate = ModuleNavigatorController(module: module);
+  MainNavigator({Key? key, required this.initialModule, required this.modules})
+      : super(key: key) {
+    delegate = ModuleNavigatorController(
+        modules: modules, currentModule: initialModule);
   }
 
   @override
@@ -19,11 +22,19 @@ class MainNavigator extends StatefulWidget {
 class _MainNavigatorState extends State<MainNavigator> {
   @override
   Widget build(BuildContext context) {
+    final initialModule = widget.modules
+        .firstWhere((element) => element.name == widget.initialModule);
+
     return BlocProvider(
-      create: (_) => ModuleNavigatorBloc(),
+      create: (_) => ModuleNavigatorBloc(
+          ModuleNavigatorInitial(routeName: initialModule.initialRoute)),
       child: MaterialApp.router(
-          routeInformationParser: widget.module,
-          routerDelegate: widget.delegate),
+        routeInformationParser: initialModule,
+        routerDelegate: widget.delegate,
+        theme: ThemeData(
+          canvasColor: Colors.transparent,
+        ),
+      ),
     );
   }
 }

@@ -1,23 +1,37 @@
+import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:page_builder/page_builder_handler.dart';
 import 'presentation/bloc/page_builder_controller.dart';
 
 class PageBuilderWidgets extends StatefulWidget {
-  final String page;
+  final RouteName page;
   final PageBuilderHandler handler = PageBuilderHandler();
 
-  PageBuilderWidgets({Key? key, required this.page}) : super(key: key);
+  PageBuilderWidgets({Key? key, required this.page}) : super(key: UniqueKey());
 
   @override
   State<PageBuilderWidgets> createState() => _PageBuilderWidgetsState();
 }
 
 class _PageBuilderWidgetsState extends State<PageBuilderWidgets> {
+  RouteName? currentRoute;
+
+  @override
+  void didUpdateWidget(covariant PageBuilderWidgets oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    
+    if (null == currentRoute || widget.page != currentRoute) {
+      currentRoute = widget.page;
+      context.read<PageBuilderController>().add(PageBuildEvent(widget.page.name));
+    }
+  }
+
   @override
   void initState() {
     super.initState();
-    context.read<PageBuilderController>().add(PageBuildEvent(widget.page));
+    currentRoute = widget.page;
+    context.read<PageBuilderController>().add(PageBuildEvent(widget.page.name));
   }
 
   @override

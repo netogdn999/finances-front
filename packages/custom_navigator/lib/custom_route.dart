@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CustomRoute extends StatelessWidget {
-  final String name;
-  final Widget child;
+import 'controller/module_navigator_bloc.dart';
 
-  const CustomRoute({Key? key, required this.name, required this.child}) : super(key: key);
+class CustomRoute<RouteName> {
+  final RouteName name;
+  final Widget Function(ModuleNavigatorState) child;
 
-  @override
-  Widget build(BuildContext context) {
-    return child;
-  }
+  const CustomRoute(
+      {Key? key,
+      required this.name,
+      required this.child});
 }

@@ -1,32 +1,53 @@
 import 'package:custom_navigator/controller/module_navigator_bloc.dart';
 import 'package:custom_navigator/custom_route.dart';
 import 'package:custom_navigator/module.dart';
+import 'package:custom_navigator/navigator_actions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ModuleNavigatorController extends RouterDelegate<CustomRoute>
+late NavigatorActions navigatorActions;
+
+class ModuleNavigatorController<ModuleName, RouteName>
+    extends RouterDelegate<CustomRoute>
     with PopNavigatorRouterDelegateMixin<CustomRoute> {
-  final Module module;
+  final List<Module> modules;
+  late ModuleName currentModule;
+  late ModuleNavigatorBloc moduleNavigatorBloc;
+  final List<MaterialPage> navigatorStack = [];
 
   @override
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
-  ModuleNavigatorController({Key? key, required this.module});
+  ModuleNavigatorController(
+      {Key? key, required this.modules, required this.currentModule});
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer(
-      listener: (_, state) {
-        if (state is ModulePreparingRoute) {}
+    moduleNavigatorBloc = context.read<ModuleNavigatorBloc>();
 
-        if (state is ModuleRenderRoute) {}
+    navigatorActions =
+        NavigatorActions(moduleNavigatorBloc: moduleNavigatorBloc);
+
+    return BlocConsumer<ModuleNavigatorBloc, ModuleNavigatorState>(
+      buildWhen: (previous, current) => current is! RouterRenderEndState,
+      listener: (_, state) {
+        if (state is NavigateToRouteState) {
+          final MaterialPage page = _getPage(currentModule, state);
+          navigatorStack.add(page);
+          moduleNavigatorBloc.add(RouterRenderEndEvent());
+        }
       },
-      builder: (BuildContext context, Object? state) {
-        final List<MaterialPage> pages = module.routes.map((route) => MaterialPage(child: route)).toList();
+      builder: (BuildContext context, ModuleNavigatorState state) {
+        if (state is ModuleNavigatorInitial && navigatorStack.isEmpty) {
+          final MaterialPage page = _getPage(currentModule, state);
+
+          navigatorStack.add(page);
+        }
 
         return Navigator(
           key: navigatorKey,
-          pages: pages,
+          pages: navigatorStack,
+          onPopPage: (_, ___) => true,
         );
       },
     );
@@ -38,9 +59,8 @@ class ModuleNavigatorController extends RouterDelegate<CustomRoute>
   }
 
   @override
-  Future<bool> popRoute() {
-    // TODO: implement popRoute
-    throw UnimplementedError();
+  Future<bool> popRoute() async {
+    return true;
   }
 
   @override
@@ -49,8 +69,16 @@ class ModuleNavigatorController extends RouterDelegate<CustomRoute>
   }
 
   @override
-  Future<void> setNewRoutePath(configuration) {
+  Future<void> setNewRoutePath(configuration) async {
     // TODO: implement setNewRoutePath
-    throw UnimplementedError();
+  }
+
+  MaterialPage _getPage(ModuleName moduleName, ModuleNavigatorState state) {
+    final initialModule =
+        modules.firstWhere((module) => module.name == moduleName);
+    final routes = initialModule.routes;
+    final route = routes.firstWhere((route) => route.name == state.routeName);
+
+    return MaterialPage(child: route.child(state));
   }
 }

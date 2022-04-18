@@ -13,7 +13,7 @@ class RemoteDataSource implements RemoteDataSourceInterface {
     switch (name) {
       case 'home':
         return homePage;
-      case 'category_details':
+      case 'details':
         return categoryPage;
       default:
         return homePage;

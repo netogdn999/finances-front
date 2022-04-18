@@ -13,3 +13,12 @@ class PushToRoute extends ModuleNavigatorEvent {
 class ModuleRenderRouteDone extends ModuleNavigatorEvent {}
 
 class PopToRoute extends ModuleNavigatorEvent {}
+
+class NavigateToRouteEvent<RouteName> extends ModuleNavigatorEvent {
+  final RouteName routeName;
+  final dynamic params;
+
+  NavigateToRouteEvent(this.routeName, this.params);
+}
+
+class RouterRenderEndEvent extends ModuleNavigatorEvent {}
